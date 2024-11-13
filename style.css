@@ -6,8 +6,7 @@
 }
 
 body {
-  background-color:purple ;
-  
+  background-color: purple;
   font-family: 'Poppins', sans-serif;
   display: flex;
   flex-wrap: wrap;
@@ -19,7 +18,7 @@ body {
   position: fixed;
   top: 1rem;
   right: 1rem;
-  background-color:goldenrod;
+  background-color: goldenrod;
   color: #fff;
   border: none;
   border-radius: 3px;
@@ -38,10 +37,11 @@ body {
   height: 350px;
   width: 350px;
   overflow-y: scroll;
+  transition: width 0.3s, height 0.3s;
 }
 
 .note .tools {
-  background-color:goldenrod;
+  background-color: goldenrod;
   display: flex;
   justify-content: flex-end;
   padding: 0.5rem;
@@ -73,26 +73,27 @@ body {
 .hidden {
   display: none;
 }
+
 #search {
   position: fixed;
-  top: 1rem; 
-  left: 13%;
-  transform: translateX(-50%); 
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
-  color:white;
+  color: white;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  background-color:goldenrod;
+  background-color: goldenrod;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  width: 80%; /* Adjust width as needed */
-  max-width: 350px; /* Maximum width to prevent stretching too wide */
+  width: 90%; /* Adjust width for responsiveness */
+  max-width: 350px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1000; /* Ensure it stays above other content */
+  z-index: 1000;
 }
 
 #search:focus {
- box-shadow: 0 0 7px white;
+  box-shadow: 0 0 7px white;
   outline: none;
 }
 
@@ -112,28 +113,27 @@ body.dark-mode .add {
 
 #toggle-theme {
   position: fixed;
-  bottom: 1rem; /* Distance from the bottom of the viewport */
-  left: 1rem; /* Distance from the left of the viewport */
-  background-color:goldenrod; /* Example background color */
-  color: #fff; /* Text color */
+  bottom: 1rem;
+  left: 1rem;
+  background-color: goldenrod;
+  color: #fff;
   border: none;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Ensure it stays above other content */
+  z-index: 1000;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 #toggle-theme:hover {
-  background-color: #8e44ad; /* Darker shade on hover */
+  background-color: #8e44ad;
 }
 
 #toggle-theme:active {
-  transform: scale(0.98); /* Slight scale effect when clicked */
+  transform: scale(0.98);
 }
-
 
 .note {
   transition: transform 0.3s, box-shadow 0.3s;
@@ -143,20 +143,67 @@ body.dark-mode .add {
   transform: translateY(-5px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+
 textarea, .main {
   transition: opacity 0.3s, visibility 0.3s;
 }
+
+@media (max-width: 1024px) {
+  .note {
+    width: 80%;
+    height: 300px;
+    margin: 20px auto;
+  }
+
+  #search {
+    width: 80%;
+    max-width: 320px;
+  }
+}
+
 @media (max-width: 768px) {
   .note {
-    width: 90%;
+    width: 85%;
     height: auto;
     margin: 20px auto;
+  }
+
+  #search {
+    width: 85%;
+    max-width: 330px;
+  }
+
+  #toggle-theme {
+    bottom: 0.5rem;
+    left: 0.5rem;
+  }
+
+  .add {
+    top: 1rem;
+    right: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .note {
-    width: 100%;
+    width: 95%;
+    margin: 10px auto;
+  }
+
+  #search {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  #toggle-theme {
+    bottom: 0.5rem;
+    left: 0.5rem;
+  }
+
+  .add {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 0.8rem;
   }
 }
 
@@ -183,7 +230,8 @@ textarea, .main {
 #developer-credit {
   position: fixed;
   bottom: 0.5rem;
-  left: 80rem;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: 'Arial', sans-serif;
   font-size: 0.7rem;
   color: #fff;
