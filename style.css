@@ -33,9 +33,10 @@ body {
 .note {
   background-color: #fff;
   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
-  margin: 30px 20px;
+  margin: 20px auto;
   height: 350px;
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   overflow-y: scroll;
   transition: width 0.3s, height 0.3s;
 }
@@ -61,7 +62,7 @@ body {
   font-family: inherit;
   font-size: 1.2rem;
   border: none;
-  height: 400px;
+  height: 300px;
   width: 100%;
   padding: 20px;
 }
@@ -150,27 +151,29 @@ textarea, .main {
 
 @media (max-width: 1024px) {
   .note {
-    width: 80%;
-    height: 300px;
-    margin: 20px auto;
+    width: 90%;
+    max-width: 320px;
+    margin: 10px auto;
+    height: auto;
   }
 
   #search {
-    width: 80%;
-    max-width: 320px;
+    width: 85%;
+    max-width: 300px;
   }
 }
 
 @media (max-width: 768px) {
   .note {
-    width: 85%;
+    width: 90%;
+    max-width: 320px;
     height: auto;
-    margin: 20px auto;
+    margin: 10px auto;
   }
 
   #search {
     width: 85%;
-    max-width: 330px;
+    max-width: 300px;
   }
 
   #toggle-theme {
@@ -181,18 +184,21 @@ textarea, .main {
   .add {
     top: 1rem;
     right: 1rem;
+    padding: 0.4rem 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .note {
-    width: 95%;
+    width: 65%;
+    max-width: 100%;
+    height: auto;
     margin: 10px auto;
   }
 
   #search {
-    width: 90%;
-    max-width: 320px;
+    width: 30%;
+    max-width: 280px;
   }
 
   #toggle-theme {
@@ -230,8 +236,8 @@ textarea, .main {
 #developer-credit {
   position: fixed;
   bottom: 0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 1rem; /* Aligning to the right */
+  transform: translateX(0); /* No need for translateX, since it's aligned to the right */
   font-family: 'Arial', sans-serif;
   font-size: 0.7rem;
   color: #fff;
