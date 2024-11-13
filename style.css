@@ -12,6 +12,7 @@ body {
   flex-wrap: wrap;
   margin: 0;
   padding-top: 3rem;
+  justify-content: center; /* Centering content on the page */
 }
 
 .add {
@@ -24,6 +25,7 @@ body {
   border-radius: 3px;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  z-index: 100;
 }
 
 .add:active {
@@ -33,12 +35,12 @@ body {
 .note {
   background-color: #fff;
   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  height: 350px;
-  width: 100%;
-  max-width: 350px;
-  overflow-y: scroll;
-  transition: width 0.3s, height 0.3s;
+  margin: 20px;
+  height: auto;
+  width: 90%;
+  max-width: 350px; /* Ensuring max-width for larger screens */
+  overflow-y: auto;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .note .tools {
@@ -62,7 +64,7 @@ body {
   font-family: inherit;
   font-size: 1.2rem;
   border: none;
-  height: 300px;
+  height: 300px; /* Reduced height to make notes more compact */
   width: 100%;
   padding: 20px;
 }
@@ -77,9 +79,9 @@ body {
 
 #search {
   position: fixed;
-  top: 1rem;
+  top: 1rem; 
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); 
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   color: white;
@@ -87,10 +89,10 @@ body {
   border-radius: 5px;
   background-color: goldenrod;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  width: 90%; /* Adjust width for responsiveness */
-  max-width: 350px;
+  width: 80%; /* Adjust width as needed */
+  max-width: 350px; /* Maximum width to prevent stretching too wide */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1000;
+  z-index: 1000; /* Ensure it stays above other content */
 }
 
 #search:focus {
@@ -136,10 +138,6 @@ body.dark-mode .add {
   transform: scale(0.98);
 }
 
-.note {
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
 .note:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -149,67 +147,51 @@ textarea, .main {
   transition: opacity 0.3s, visibility 0.3s;
 }
 
-@media (max-width: 1024px) {
-  .note {
-    width: 90%;
-    max-width: 320px;
-    margin: 10px auto;
-    height: auto;
-  }
-
-  #search {
-    width: 30%;
-    max-width: 300px;
-  }
-}
-
 @media (max-width: 768px) {
+  body {
+    padding-top: 2rem; /* Adjust padding for mobile */
+  }
+
   .note {
-    width: 90%;
-    max-width: 320px;
-    height: auto;
-    margin: 10px auto;
+    width: 100%; /* Make the note take full width on smaller screens */
+    height: auto; /* Allow height to adjust automatically */
+    margin: 10px 0;
   }
 
   #search {
-    width: 30%;
-    max-width: 300px;
-  }
-
-  #toggle-theme {
-    bottom: 0.5rem;
-    left: 0.5rem;
+    width: 90%; /* Make search bar take most of the width on mobile */
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .add {
-    top: 1rem;
-    right: 1rem;
-    padding: 0.4rem 0.8rem;
+    padding: 0.3rem 0.6rem; /* Smaller padding for the button */
+    font-size: 0.9rem;
+  }
+
+  #toggle-theme {
+    bottom: 1rem; /* Adjust for better visibility */
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
 @media (max-width: 480px) {
   .note {
-    width: 65%;
-    max-width: 100%;
+    width: 100%; /* Notes will take the full screen width on very small screens */
     height: auto;
-    margin: 10px auto;
   }
 
   #search {
-    width: 30%;
-    max-width: 280px;
-  }
-
-  #toggle-theme {
-    bottom: 0.5rem;
-    left: 0.5rem;
+    width: 90%; /* Ensure search bar doesn't stretch too wide */
   }
 
   .add {
-    top: 1rem;
-    right: 1rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem; /* Adjust the font size for smaller screens */
+  }
+
+  #toggle-theme {
+    font-size: 0.85rem; /* Adjust button size on small screens */
   }
 }
 
@@ -236,8 +218,8 @@ textarea, .main {
 #developer-credit {
   position: fixed;
   bottom: 0.5rem;
-  right: 1rem; /* Aligning to the right */
-  transform: translateX(0); /* No need for translateX, since it's aligned to the right */
+  right: 1rem; /* Align to the right of the screen */
+  transform: translateX(0);
   font-family: 'Arial', sans-serif;
   font-size: 0.7rem;
   color: #fff;
